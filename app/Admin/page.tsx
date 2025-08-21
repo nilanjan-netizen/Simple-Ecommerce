@@ -18,11 +18,11 @@ export default function Admin() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       try {
-        const storedOrders = sessionStorage.getItem("orders");
+        const storedOrders = localStorage.getItem("orders"); // ✅ localStorage
         const ordersData = storedOrders ? JSON.parse(storedOrders) : [];
         setOrders(ordersData.slice(0, 5)); // latest 5 orders
       } catch (error) {
-        console.error("Error reading orders from sessionStorage:", error);
+        console.error("Error reading orders from localStorage:", error);
       }
     }
   }, []);
@@ -31,9 +31,10 @@ export default function Admin() {
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
       <aside className="w-64 bg-white shadow-md flex flex-col">
-        <div className="p-6 text-2xl font-bold text-red-500">ADMIN DASHBOARD</div>
+        <div className="p-6 text-2xl font-bold text-red-500">
+          ADMIN DASHBOARD
+        </div>
         <nav className="flex-1 px-4 space-y-2">
-
           <a
             href="https://dashboard.stripe.com/test/products?active=true"
             target="_blank"
@@ -83,7 +84,9 @@ export default function Admin() {
                   <h2 className="font-semibold text-gray-800">
                     {order.product} x {order.quantity}
                   </h2>
-                  <p className="text-sm text-gray-500">Items : {order.quantity}</p>
+                  <p className="text-sm text-gray-500">
+                    Items : {order.quantity}
+                  </p>
                   <p className="mt-2 text-gray-700">{order.customer}</p>
                 </div>
 
@@ -96,12 +99,14 @@ export default function Admin() {
 
                   {/* Method */}
                   <p className="text-sm text-red-700">
-                    <span className="font-medium text-red-900">Method:</span> {order.method}
+                    <span className="font-medium text-red-900">Method:</span>{" "}
+                    {order.method}
                   </p>
 
                   {/* Date */}
                   <p className="text-sm text-red-700">
-                    <span className="font-medium text-gray-900">Date:</span> {order.date}
+                    <span className="font-medium text-gray-900">Date:</span>{" "}
+                    {order.date}
                   </p>
 
                   {/* Payment */}
@@ -125,3 +130,4 @@ export default function Admin() {
     </div>
   );
 }
+ 
