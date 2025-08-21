@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface OrbitingImagesProps {
   images: string[];
@@ -30,9 +31,11 @@ const OrbitingImages: React.FC<OrbitingImagesProps> = ({ images, centerImage }) 
                      w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-amber-400/70 
                      shadow-2xl bg-white/90 p-2 z-20"
         >
-          <img
+          <Image
             src={centerImage}
             alt="Center"
+            width={160}
+            height={160}
             className="w-full h-full rounded-full object-cover shadow-xl"
           />
         </div>
@@ -50,9 +53,11 @@ const OrbitingImages: React.FC<OrbitingImagesProps> = ({ images, centerImage }) 
                        shadow-xl bg-white/95 p-2 orbit"
             style={{ animationDelay: delay }}
           >
-            <img
+            <Image
               src={img}
               alt={`Orbit ${index + 1}`}
+              width={128}
+              height={128}
               className="w-full h-full rounded-full object-cover shadow-lg"
             />
           </div>
