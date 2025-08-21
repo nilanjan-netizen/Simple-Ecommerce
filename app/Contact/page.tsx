@@ -1,5 +1,4 @@
 "use client";
-import { ToastContainer, toast } from "react-toastify";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -34,13 +33,13 @@ export default function Contact() {
         const data = await response.json();
 
         if (data.success) {
-          toast.success("📧 Email sent successfully!");
+          setResult("📧 Email sent successfully!");
           form.reset();
         } else {
-          toast.error(`❌ Email sending failed: ${data.message}`);
+          setResult(`❌ Email sending failed: ${data.message}`);
         }
       } catch (err) {
-        toast.error("⚠️ Something went wrong!");
+        setResult("⚠️ Something went wrong!");
         console.error(err);
       }
     }
@@ -52,7 +51,7 @@ export default function Contact() {
         whatsappMessage
       )}`;
       window.open(whatsappUrl, "_blank");
-      toast.success("✅ WhatsApp message opened!");
+      setResult("✅ WhatsApp message opened!");
       form.reset();
     }
 
