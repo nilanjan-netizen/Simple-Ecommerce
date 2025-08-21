@@ -15,7 +15,7 @@ export default function SuccessPage() {
       <p className="mb-4">
         Thank you for your purchase. Your order is being processed.
       </p>
-      <Link href="/products" className="text-blue-600 hover:underline">
+      <Link href="/products" className=" text-5xl text-blue-600 hover:underline">
         Continue Shopping
       </Link>
     </div>
