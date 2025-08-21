@@ -167,3 +167,58 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+
+
+/* 
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(200px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(200px) rotate(-360deg);
+  }
+}
+
+.orbit {
+  animation: orbit 20s linear infinite;
+}
+
+.orbit-delay-5 {
+  animation: orbit 25s linear infinite;
+}
+
+.orbit-delay-10 {
+  animation: orbit 30s linear infinite;
+} */
+
+
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+.orbit {
+  animation: orbit 10s linear infinite;
+}
+
+.orbit-delay-0 { animation-delay: 0s; }
+.orbit-delay-1 { animation-delay: 2.5s; }
+.orbit-delay-2 { animation-delay: 5s; }
+.orbit-delay-3 { animation-delay: 7.5s; }
+.orbit-delay-4 { animation-delay: 10s; }
+.orbit-delay-5 { animation-delay: 12.5s; }
+
+
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
