@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link"; // ✅ for internal navigation
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaWhatsapp } from "react-icons/fa";
 
 const Footer: React.FC = () => {
@@ -34,19 +35,29 @@ const Footer: React.FC = () => {
           <h2 className="font-semibold text-red-800 text-lg mb-5">Quick Links | দ্রুত লিঙ্ক</h2>
           <ul className="space-y-3 text-base">
             <li>
-              <a className="hover:text-red-600 hover:underline transition-colors duration-300" href="/">🏠 Home | হোম</a>
+              <Link href="/" className="hover:text-red-600 hover:underline transition-colors duration-300">
+                🏠 Home | হোম
+              </Link>
             </li>
             <li>
-              <a className="hover:text-red-600 hover:underline transition-colors duration-300" href="/products">🍴 Menu | মেনু</a>
+              <Link href="/products" className="hover:text-red-600 hover:underline transition-colors duration-300">
+                🍴 Menu | মেনু
+              </Link>
             </li>
             <li>
-              <a className="hover:text-red-600 hover:underline transition-colors duration-300" href="/checkout">🛒 Order Online | অনলাইনে অর্ডার</a>
+              <Link href="/checkout" className="hover:text-red-600 hover:underline transition-colors duration-300">
+                🛒 Order Online | অনলাইনে অর্ডার
+              </Link>
             </li>
             <li>
-              <a className="hover:text-red-600 hover:underline transition-colors duration-300" href="/Contact">📞 Contact Us | যোগাযোগ</a>
+              <Link href="/Contact" className="hover:text-red-600 hover:underline transition-colors duration-300">
+                📞 Contact Us | যোগাযোগ
+              </Link>
             </li>
             <li>
-              <a className="hover:text-red-600 hover:underline transition-colors duration-300" href="/Admin">⚙️ Admin Panel | এডমিন</a>
+              <Link href="/Admin" className="hover:text-red-600 hover:underline transition-colors duration-300">
+                ⚙️ Admin Panel | এডমিন
+              </Link>
             </li>
           </ul>
         </div>
