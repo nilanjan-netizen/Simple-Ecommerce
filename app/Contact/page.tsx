@@ -1,7 +1,6 @@
 "use client";
-
+import { ToastContainer, toast } from "react-toastify";
 import React, { useState } from "react";
-import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 
 export default function Contact() {
