@@ -18,11 +18,21 @@ export default function Admin() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       try {
-        const storedOrders = localStorage.getItem("orders"); // ✅ localStorage
+        // ✅ Correct: Read from sessionStorage with "orders" key
+        const storedOrders = sessionStorage.getItem("orders");
+        console.log("RAW sessionStorage value:", storedOrders);
+
         const ordersData = storedOrders ? JSON.parse(storedOrders) : [];
-        setOrders(ordersData.slice(0, 5)); // latest 5 orders
+
+        // ✅ Ensure it's an array before setting state
+        if (Array.isArray(ordersData)) {
+          setOrders(ordersData.slice(0, 5)); // show only latest 5
+        } else {
+          console.warn("⚠️ sessionStorage 'orders' is not an array:", ordersData);
+          setOrders([]);
+        }
       } catch (error) {
-        console.error("Error reading orders from localStorage:", error);
+        console.error("❌ Error reading orders from sessionStorage:", error);
       }
     }
   }, []);
@@ -94,7 +104,7 @@ export default function Admin() {
                 <div className="text-right bg-gray-50 rounded-lg p-3 shadow-inner min-w-[180px]">
                   {/* Amount */}
                   <p className="text-xl font-bold text-green-600 mb-2">
-                    ${order.amount.toFixed(2)}
+                    ${order.amount}
                   </p>
 
                   {/* Method */}
@@ -130,4 +140,3 @@ export default function Admin() {
     </div>
   );
 }
- 
