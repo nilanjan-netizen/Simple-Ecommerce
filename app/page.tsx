@@ -52,7 +52,7 @@ export default async function Home() {
               variant="default"
               className="inline-flex items-center justify-center rounded-full px-6 py-3 bg-black text-white"
             >
-              <Link href="/menu">আমাদের মেনু(MENU) দেখুন</Link>
+              <Link href="/products">আমাদের মেনু(MENU) দেখুন</Link>
             </Button>
           </div>
 
